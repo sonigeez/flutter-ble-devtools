@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: pub
+    directory: /packages/ble_devtools_core
+    schedule:
+      interval: monthly
+  - package-ecosystem: pub
+    directory: /packages/ble_devtools_flutter_blue_plus
+    schedule:
+      interval: monthly
+  - package-ecosystem: pub
+    directory: /packages/ble_devtools_extension
+    schedule:
+      interval: monthly

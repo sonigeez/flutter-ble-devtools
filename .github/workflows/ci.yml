@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    name: Core package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/ble_devtools_core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: dart analyze
+      - run: dart test
+
+  flutter_blue_plus_adapter:
+    name: FlutterBluePlus adapter
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/ble_devtools_flutter_blue_plus
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: flutter analyze
+      - run: flutter test
+
+  devtools_extension:
+    name: DevTools extension
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/ble_devtools_extension
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed lib
+      - run: flutter analyze
+      - run: flutter build web --release
+      - run: dart run devtools_extensions validate --package=../ble_devtools_flutter_blue_plus

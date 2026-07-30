@@ -1,0 +1,9 @@
+.dart_tool/
+.flutter-plugins-dependencies
+.packages
+build/
+coverage/
+pubspec.lock
+packages/ble_devtools_extension/build/
+!packages/ble_devtools_flutter_blue_plus/extension/devtools/build/
+!packages/ble_devtools_flutter_blue_plus/extension/devtools/build/**

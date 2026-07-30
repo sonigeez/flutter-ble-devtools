@@ -1,0 +1,5 @@
+name: ble_devtools_flutter_blue_plus
+version: 0.1.0
+issueTracker: https://github.com/your-org/flutter-ble-devtools/issues
+materialIconCodePoint: '0xe1a7'
+requiresConnection: true

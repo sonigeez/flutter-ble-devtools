@@ -1,0 +1,3 @@
+dependency_overrides:
+  ble_devtools_core:
+    path: ../ble_devtools_core

@@ -1,0 +1,12 @@
+name: ble_devtools_core
+description: Library-agnostic BLE traces, recording, byte decoding, export, and Markdown reproduction reports.
+version: 0.1.0
+repository: https://github.com/sonigeez/flutter-ble-devtools
+issue_tracker: https://github.com/sonigeez/flutter-ble-devtools/issues
+environment:
+  sdk: ^3.4.0
+dependencies:
+  meta: ^1.12.0
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0

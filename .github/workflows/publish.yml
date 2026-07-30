@@ -1,0 +1,45 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Pub.dev package to validate or publish
+        required: true
+        type: choice
+        options:
+          - ble_devtools_core
+          - ble_devtools_flutter_blue_plus
+      publish:
+        description: Publish to pub.dev (leave false for a dry run)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: ${{ inputs.publish && 'Publish' || 'Validate' }} ${{ inputs.package }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/${{ inputs.package }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Resolve published dependencies
+        run: |
+          rm -f pubspec_overrides.yaml
+          flutter pub get
+      - name: Validate pub.dev package
+        run: dart pub publish --dry-run
+      - name: Publish to pub.dev
+        if: inputs.publish
+        env:
+          PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
+        run: dart pub publish --force

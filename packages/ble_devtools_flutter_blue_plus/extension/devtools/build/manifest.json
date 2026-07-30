@@ -1,0 +1,9 @@
+{
+  "name": "BLE DevTools",
+  "short_name": "BLE DevTools",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101413",
+  "theme_color": "#00a88f",
+  "description": "Flutter DevTools extension for BLE session traces."
+}

@@ -1,0 +1,18 @@
+name: ble_devtools_flutter_blue_plus
+description: FlutterBluePlus instrumentation and a Flutter DevTools panel for inspecting BLE traces.
+version: 0.1.0
+repository: https://github.com/sonigeez/flutter-ble-devtools
+issue_tracker: https://github.com/sonigeez/flutter-ble-devtools/issues
+environment:
+  sdk: ^3.4.0
+  flutter: '>=3.24.0'
+dependencies:
+  ble_devtools_core: ^0.1.0
+  flutter:
+    sdk: flutter
+  flutter_blue_plus: ^2.3.11
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lints: ^5.0.0
+flutter:
