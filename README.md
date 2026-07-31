@@ -5,18 +5,18 @@
 
 **Chrome DevTools for BLE in Flutter: inspect, replay, and share real-device Bluetooth failures.**
 
-Bluetooth failures usually arrive as folklore: “it disconnected while syncing.” That is not a bug report; it is a campfire story. Flutter BLE DevTools records the session your app is already running and makes it inspectable in Flutter DevTools.
+Flutter BLE DevTools helps Flutter teams inspect and troubleshoot Bluetooth Low Energy sessions on real devices. It records BLE activity from your app and presents it as a timeline in Flutter DevTools, including connections, GATT operations, MTU negotiation, notifications, RSSI, and reconnection attempts.
 
 ```text
-14:02:11  connected
+14:02:11  Connected
 14:02:12  MTU negotiated: 247
-14:02:14  write command 0x08
-14:02:17  notification timeout
-14:02:18  Android GATT status 133
-14:02:21  reconnect attempt 1 failed
+14:02:14  Write command: 0x08
+14:02:17  Notification timeout
+14:02:18  Android GATT status: 133
+14:02:21  Reconnect attempt 1 failed
 ```
 
-It is an observability tool, not another BLE plugin and not Scanner App #47 with a darker blue gradient.
+Export a sanitized `.bletrace` file and Markdown reproduction report to share a clear, structured record of a Bluetooth failure with your team or hardware vendor.
 
 ## What you get
 
